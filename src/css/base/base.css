@@ -1,0 +1,32 @@
+@import "tailwindcss";
+
+form {
+    background-color: var(--white);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: var(--black-text);
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.button-blue {
+    background-color: var(--blue-primary);
+    color: var(--white);
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.button-blue:hover {
+    background-color: var(--blue-highlight);
+}
+
+.button-blue:disabled {
+    background-color: var(--blue-dark);
+}

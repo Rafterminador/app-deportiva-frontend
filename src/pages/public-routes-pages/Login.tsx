@@ -39,9 +39,9 @@ const Login: React.FC = () => {
   };
 
   return (
-    <div>
+    <div className="background-public-pages">
       <form onSubmit={handleSubmitLogin(onSubmitLogin)}>
-        <h2>Iniciar Sesión</h2>
+        <h1>Iniciar Sesión</h1>
         <div>
           <label htmlFor="email">Email</label>
           <input
@@ -73,7 +73,7 @@ const Login: React.FC = () => {
           {badRequest && <p>Credenciales incorrectas</p>}
         </div>
         <Link to="/forgot-password">¿Olvidaste tu contraseña?</Link>
-        <button type="submit" disabled={isLoading}>
+        <button type="submit" disabled={isLoading} className="button-blue">
           Iniciar sesión
         </button>
         <p>
