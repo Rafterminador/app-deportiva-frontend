@@ -47,7 +47,7 @@ const Login: React.FC = () => {
           <input
             type="email"
             id="email"
-            placeholder="correo@ejemplo.com"
+            placeholder={formMessages.emailPlaceholder}
             disabled={isLoading}
             {...registerLogin("email", loginObligatoryFields.email)}
           />
@@ -72,12 +72,14 @@ const Login: React.FC = () => {
           {errorsLogin.password && <p>{errorsLogin.password.message}</p>}
           {badRequest && <p>Credenciales incorrectas</p>}
         </div>
-        <Link to="/forgot-password">¿Olvidaste tu contraseña?</Link>
-        <button type="submit" disabled={isLoading} className="button-blue">
+        <p className="text-center mb-[24px]">
+          <Link to="/forgot-password" className="link">¿Olvidaste tu contraseña?</Link>
+        </p>
+        <button type="submit" disabled={isLoading} className="button-blue mb-[12px]">
           Iniciar sesión
         </button>
-        <p>
-          ¿Eres nuevo? <Link to="/create-user">Crear usuario</Link>
+        <p className="text-center">
+          ¿Eres nuevo? <Link to="/create-user" className="link">Crear usuario</Link>
         </p>
       </form>
     </div>
