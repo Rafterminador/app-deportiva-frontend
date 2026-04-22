@@ -25,9 +25,10 @@ const Login: React.FC = () => {
     password: { required: formMessages.requiredFieldMessage },
   };
 
-  const onSubmitLogin: SubmitHandler<LoginInterface> = async (_data) => {
+  const onSubmitLogin: SubmitHandler<LoginInterface> = async (data) => {
     setIsLoading(true);
     setBadRequest(false);
+    console.log(data)
     // TODO: replace with real loginService.fetchLogin(data)
     await new Promise((resolve) => setTimeout(resolve, 500));
     setIsLoading(false);
@@ -42,7 +43,7 @@ const Login: React.FC = () => {
     <div className="background-public-pages">
       <form onSubmit={handleSubmitLogin(onSubmitLogin)}>
         <h1>Iniciar Sesión</h1>
-        <div>
+        <div className="flex flex-col gap-y-[8px]">
           <label htmlFor="email">Email</label>
           <input
             type="email"
@@ -51,11 +52,11 @@ const Login: React.FC = () => {
             disabled={isLoading}
             {...registerLogin("email", loginObligatoryFields.email)}
           />
-          {errorsLogin.email && <p>{errorsLogin.email.message}</p>}
+          {errorsLogin.email && <p className="error-text">{errorsLogin.email.message}</p>}
         </div>
-        <div>
+        <div className="flex flex-col gap-y-[8px]">
           <label htmlFor="password">Contraseña</label>
-          <div style={{ position: "relative" }}>
+          <div className="input-password-wrapper">
             <input
               type={showPassword ? "password" : "text"}
               id="password"
@@ -64,18 +65,18 @@ const Login: React.FC = () => {
               {...registerLogin("password", loginObligatoryFields.password)}
             />
             {showPassword ? (
-              <VisibilityIcon onClick={toggleVisibility} style={{ cursor: "pointer" }} />
+              <VisibilityIcon className="input-icon-right" onClick={toggleVisibility} />
             ) : (
-              <VisibilityOffIcon onClick={toggleVisibility} style={{ cursor: "pointer" }} />
+              <VisibilityOffIcon className="input-icon-right" onClick={toggleVisibility} />
             )}
           </div>
-          {errorsLogin.password && <p>{errorsLogin.password.message}</p>}
-          {badRequest && <p>Credenciales incorrectas</p>}
+          {errorsLogin.password && <p className="error-text">{errorsLogin.password.message}</p>}
+          {badRequest && <p className="error-text">Credenciales incorrectas</p>}
         </div>
-        <p className="text-center mb-[24px]">
+        <p className="text-center">
           <Link to="/forgot-password" className="link">¿Olvidaste tu contraseña?</Link>
         </p>
-        <button type="submit" disabled={isLoading} className="button-blue mb-[12px]">
+        <button type="submit" disabled={isLoading} className="button-blue">
           Iniciar sesión
         </button>
         <p className="text-center">

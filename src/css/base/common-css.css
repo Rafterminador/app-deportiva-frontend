@@ -12,3 +12,20 @@
     width: 100vw;
     background-color: var(--gray-bg, #F3F4F6);
 }
+
+.input-password-wrapper {
+    position: relative;
+}
+
+.input-password-wrapper input {
+    padding-right: 40px;
+}
+
+.input-icon-right {
+    position: absolute;
+    right: 8px;
+    top: 40%;
+    transform: translateY(-40%);
+    cursor: pointer;
+    color: var(--gray-text);
+}
