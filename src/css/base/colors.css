@@ -1,0 +1,30 @@
+:root {
+    /* Blue */
+    --blue-primary: #1565C0;
+    --blue-dark: #0F2D5E;
+    --blue-light: #DBEAFE;
+    --blue-highlight: #2563EB;
+
+    /* Red / Orange */
+    --red-error: #DC2626;
+    --red-error-bg: #FEF2F2;
+    --orange-accent: #EA580C;
+
+    /* Green */
+    --green-primary: #16A34A;
+    --green-primary-hover: #15803D;
+
+    /* Yellow / Warning */
+    --yellow-warning: #F59E0B;
+    --yellow-warning-bg: #FFFBE6;
+    --yellow-warning-text: #92400E;
+
+    /* Gray */
+    --gray-heading: #111827;
+    --gray-text: #6B7280;
+    --gray-border: #D1D5DB;
+
+    /* White / Black */
+    --white: #FAFAFA;
+    --black-text: #1A1A2E;
+}
