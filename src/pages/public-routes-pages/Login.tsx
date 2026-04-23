@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 import { LoginInterface } from "@utils/interfaces/pages-interfaces/public-routes/InterfacesLogin";
 import { formMessages } from "@constants/messages/formMessages";
+import { loginService } from "@services/public-routes-services/loginService";
 
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
@@ -28,10 +29,12 @@ const Login: React.FC = () => {
   const onSubmitLogin: SubmitHandler<LoginInterface> = async (data) => {
     setIsLoading(true);
     setBadRequest(false);
-    console.log(data)
-    // TODO: replace with real loginService.fetchLogin(data)
-    await new Promise((resolve) => setTimeout(resolve, 500));
+    const response = await loginService.fetchLogin(data);
     setIsLoading(false);
+    if (!response) {
+      setBadRequest(true);
+      return;
+    }
     navigate("/home");
   };
 
